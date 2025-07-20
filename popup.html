@@ -99,33 +99,49 @@
             color: #666;
         }
 
-        .toggle {
+        .toggle-container {
             position: relative;
+            display: inline-block;
             width: 40px;
             height: 20px;
-            background: #ccc;
-            border-radius: 10px;
             cursor: pointer;
-            transition: background 0.3s;
         }
 
-        .toggle.active {
-            background: #4CAF50;
+        .toggle-input {
+            opacity: 0;
+            width: 0;
+            height: 0;
         }
 
-        .toggle::after {
-            content: '';
+        .toggle-slider {
             position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 16px;
-            height: 16px;
-            background: white;
-            border-radius: 50%;
-            transition: transform 0.3s;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.3s;
+            border-radius: 10px;
         }
 
-        .toggle.active::after {
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        .toggle-input:checked + .toggle-slider {
+            background-color: #4CAF50;
+        }
+
+        .toggle-input:checked + .toggle-slider:before {
             transform: translateX(20px);
         }
 
@@ -186,27 +202,45 @@
         <form id="config-form">
             <div class="config-item">
                 <span class="config-label">Enable Detox</span>
-                <div class="toggle" id="enabled-toggle"></div>
+                <label class="toggle-container">
+                    <input type="checkbox" id="enabled-toggle" class="toggle-input" checked>
+                    <span class="toggle-slider"></span>
+                </label>
             </div>
             <div class="config-item">
                 <span class="config-label">Show Toast</span>
-                <div class="toggle" id="show-toast-toggle"></div>
+                <label class="toggle-container">
+                    <input type="checkbox" id="show-toast-toggle" class="toggle-input" checked>
+                    <span class="toggle-slider"></span>
+                </label>
             </div>
             <div class="config-item">
                 <span class="config-label">Remove Ads</span>
-                <div class="toggle" id="remove-ads-toggle"></div>
+                <label class="toggle-container">
+                    <input type="checkbox" id="remove-ads-toggle" class="toggle-input" checked>
+                    <span class="toggle-slider"></span>
+                </label>
             </div>
             <div class="config-item">
                 <span class="config-label">Remove Suggestions</span>
-                <div class="toggle" id="remove-suggestions-toggle"></div>
+                <label class="toggle-container">
+                    <input type="checkbox" id="remove-suggestions-toggle" class="toggle-input" checked>
+                    <span class="toggle-slider"></span>
+                </label>
             </div>
             <div class="config-item">
                 <span class="config-label">Remove Shorts</span>
-                <div class="toggle" id="remove-shorts-toggle"></div>
+                <label class="toggle-container">
+                    <input type="checkbox" id="remove-shorts-toggle" class="toggle-input" checked>
+                    <span class="toggle-slider"></span>
+                </label>
             </div>
             <div class="config-item">
                 <span class="config-label">Remove Disguised Shorts</span>
-                <div class="toggle" id="remove-disguised-shorts-toggle"></div>
+                <label class="toggle-container">
+                    <input type="checkbox" id="remove-disguised-shorts-toggle" class="toggle-input" checked>
+                    <span class="toggle-slider"></span>
+                </label>
             </div>
         </form>
     </div>

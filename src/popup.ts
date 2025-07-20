@@ -100,7 +100,12 @@ async function resetStats(): Promise<void> {
 }
 
 // Event listeners
-configForm.addEventListener('change', saveConfig);
+enabledToggle.addEventListener('change', saveConfig);
+showToastToggle.addEventListener('change', saveConfig);
+removeAdsToggle.addEventListener('change', saveConfig);
+removeSuggestionsToggle.addEventListener('change', saveConfig);
+removeShortsToggle.addEventListener('change', saveConfig);
+removeDisguisedShortsToggle.addEventListener('change', saveConfig);
 resetButton.addEventListener('click', resetStats);
 
 // Initialize popup
