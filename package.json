@@ -1,0 +1,46 @@
+{
+  "name": "youtube-detox-pro",
+  "version": "1.0.0",
+  "description": "Remove Shorts, ads, suggested rows, and disguised Shorts from YouTube search with floating toast stats",
+  "main": "dist/background.js",
+  "scripts": {
+    "build": "tsc && webpack --mode=production",
+    "dev": "tsc && webpack --mode=development --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean"
+  },
+  "keywords": [
+    "chrome-extension",
+    "youtube",
+    "ad-blocker",
+    "shorts-remover",
+    "typescript"
+  ],
+  "author": "You",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.260",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.24",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "rimraf": "^5.0.5",
+    "ts-jest": "^29.1.2",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "webextension-polyfill": "^0.10.0"
+  }
+} 

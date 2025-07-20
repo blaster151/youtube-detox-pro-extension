@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Detox Pro</title>
+    <style>
+        body {
+            width: 320px;
+            min-height: 400px;
+            margin: 0;
+            padding: 16px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
+            color: #1a1a1a;
+        }
+
+        .header p {
+            margin: 8px 0 0 0;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .stats-section {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .stats-section h2 {
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            color: #1a1a1a;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .stat-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .config-section {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .config-section h2 {
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            color: #1a1a1a;
+        }
+
+        .config-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .config-item:last-child {
+            border-bottom: none;
+        }
+
+        .config-label {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .toggle {
+            position: relative;
+            width: 40px;
+            height: 20px;
+            background: #ccc;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .toggle.active {
+            background: #4CAF50;
+        }
+
+        .toggle::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .toggle.active::after {
+            transform: translateX(20px);
+        }
+
+        .reset-button {
+            width: 100%;
+            padding: 12px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .reset-button:hover {
+            background: #c82333;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 10px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔥 YouTube Detox Pro</h1>
+        <p>Remove distractions, focus on content</p>
+    </div>
+
+    <div class="stats-section">
+        <h2>📊 Statistics</h2>
+        <div id="stats-container">
+            <div class="stat-item">
+                <span class="stat-label">Ads Removed:</span>
+                <span class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Suggestions Removed:</span>
+                <span class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Shorts Shelves Removed:</span>
+                <span class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Disguised Shorts Removed:</span>
+                <span class="stat-value">0</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="config-section">
+        <h2>⚙️ Settings</h2>
+        <form id="config-form">
+            <div class="config-item">
+                <span class="config-label">Enable Detox</span>
+                <div class="toggle" id="enabled-toggle"></div>
+            </div>
+            <div class="config-item">
+                <span class="config-label">Show Toast</span>
+                <div class="toggle" id="show-toast-toggle"></div>
+            </div>
+            <div class="config-item">
+                <span class="config-label">Remove Ads</span>
+                <div class="toggle" id="remove-ads-toggle"></div>
+            </div>
+            <div class="config-item">
+                <span class="config-label">Remove Suggestions</span>
+                <div class="toggle" id="remove-suggestions-toggle"></div>
+            </div>
+            <div class="config-item">
+                <span class="config-label">Remove Shorts</span>
+                <div class="toggle" id="remove-shorts-toggle"></div>
+            </div>
+            <div class="config-item">
+                <span class="config-label">Remove Disguised Shorts</span>
+                <div class="toggle" id="remove-disguised-shorts-toggle"></div>
+            </div>
+        </form>
+    </div>
+
+    <button class="reset-button" id="reset-button">Reset Statistics</button>
+
+    <div class="footer">
+        <p>Version 1.0.0 | Made with ❤️</p>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html> 
